@@ -1,0 +1,5 @@
+# Тип "Границы стоимости аренды".
+type RentPrice {
+  min: Int
+  max: Int
+}

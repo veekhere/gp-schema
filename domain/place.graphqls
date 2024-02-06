@@ -1,0 +1,12 @@
+type Place {
+  id: UUID!
+  rentType: [RentType!]!
+  spaceType: SpaceType!
+  area: Float!
+  floor: Int!
+  shortTermPrices: RentPrice
+  longTermPrices: RentPrice
+  latitude: Float
+  longitude: Float
+  
+}
