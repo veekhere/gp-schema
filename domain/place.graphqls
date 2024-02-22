@@ -1,12 +1,103 @@
 type Place {
   id: UUID!
+  # Тип аренды.
   rentType: [RentType!]!
+  # Тип помещения.
   spaceType: SpaceType!
+  # Площадь.
   area: Float!
+  # Этаж.
   floor: Int!
+  # Диапазон цен краткосрочной аренды.
   shortTermPrices: RentPrice
+  # Диапазон цен долгосрочной аренды.
   longTermPrices: RentPrice
+  # Широта.
   latitude: Float
+  # Долгота.
   longitude: Float
-  
+  # Страна.
+  country: String!
+  # Область.
+  state: String
+  # Город.
+  city: String!
+  # Улица.
+  road: String!
+  # Дом.
+  houseNumber: Int!
+  # Оценки.
+  ratings: [Rating]
+}
+
+input PlaceInput {
+  id: UUID!
+  # Тип аренды.
+  rentType: [RentType!]!
+  # Тип помещения.
+  spaceType: SpaceType!
+  # Площадь.
+  area: Float!
+  # Этаж.
+  floor: Int!
+  # Диапазон цен краткосрочной аренды.
+  shortTermPrices: RentPrice
+  # Диапазон цен долгосрочной аренды.
+  longTermPrices: RentPrice
+  # Широта.
+  latitude: Float
+  # Долгота.
+  longitude: Float
+  # Страна.
+  country: String!
+  # Область.
+  state: String
+  # Город.
+  city: String!
+  # Улица.
+  road: String!
+  # Дом.
+  houseNumber: Int!
+}
+
+input PlaceFilter {
+  # Фильтр по типу аренды.
+  rentType: RentType
+  # Фильтр по типу помещения.
+  spaceType: SpaceType
+  # Фильтр по площади (от).
+  areaFrom: Float
+  # Фильтр по площади (до).
+  areaTo: Float
+  # Фильтр по этажу.
+  floor: Int
+  # Фильтр по цены аренды (от).
+  priceFrom: BigDecimal
+  # Фильтр по цены аренды (до).
+  priceTo: BigDecimal
+  # Фильтр по стране.
+  country: String!
+  # Фильтр по области.
+  state: String
+  # Фильтр по городу.
+  city: String
+  # Фильтр по улице.
+  road: String
+  # Фильтр по дому.
+  houseNumber: Int
+  # Фильтр по оценкам (от).
+  ratingFrom: Float
+  # Фильтр по оценкам (до).
+  ratingTo: Float
+}
+
+extend type Query {
+  searchPlaces(filter: PlaceFilter!): [Place]!
+  getPlace(id: UUID!): Place
+}
+
+extend type Mutation {
+  createPlace(place: PlaceInput!): OperationResult!
+  updatePlace(place: PlaceInput!): OperationResult!
+  deletePlace(id: UUID!): OperationResult!
 }

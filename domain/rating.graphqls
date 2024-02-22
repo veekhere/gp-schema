@@ -1,0 +1,54 @@
+type Rating {
+  id: UUID!
+  # Цена аренды.
+  price: Int
+  # Тип аренды.
+  rentType: RentType!
+  # Срок аренды (от).
+  rentDateFrom: Date!
+  # Срок аренды (до).
+  rentDateTo: Date!
+  # Преимущества.
+  pros: String!
+  # Недостатки.
+  cons: String!
+  # Комментарий.
+  comment: String
+  # Оценка помещения.
+  placeRating: Int!
+  # Оценка арендодателя.
+  landlordRating: Int!
+  # Оценка соседей.
+  neighborRating: Int
+  # Помещение.
+  place: Place
+}
+
+type RatingInput {
+  id: UUID!
+  placeId: UUID!
+  # Цена аренды.
+  price: Int
+  # Тип аренды.
+  rentType: RentType!
+  # Срок аренды (от).
+  rentDateFrom: Date!
+  # Срок аренды (до).
+  rentDateTo: Date!
+  # Преимущества.
+  pros: String!
+  # Недостатки.
+  cons: String!
+  # Комментарий.
+  comment: String
+  # Оценка помещения.
+  placeRating: Int!
+  # Оценка арендодателя.
+  landlordRating: Int!
+  # Оценка соседей.
+  neighborRating: Int
+}
+
+extend type Mutation {
+  ratePlace(rating: RatingInput!): OperationResult!
+}
