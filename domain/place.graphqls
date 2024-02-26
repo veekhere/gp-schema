@@ -13,9 +13,9 @@ type Place {
   # Диапазон цен долгосрочной аренды.
   longTermPrices: RentPrice
   # Широта.
-  latitude: Float
+  latitude: Float!
   # Долгота.
-  longitude: Float
+  longitude: Float!
   # Страна.
   country: String!
   # Область.
@@ -26,6 +26,12 @@ type Place {
   road: String!
   # Дом.
   houseNumber: Int!
+  # Средняя оценка помещения.
+  avgPlaceRating: Float!
+  # Средняя оценка арендодателя.
+  avgLandlordRating: Float!
+  # Средняя оценка соседей.
+  avgNeighborRating: Float!
   # Оценки.
   ratings: [Rating]
 }
@@ -41,13 +47,13 @@ input PlaceInput {
   # Этаж.
   floor: Int!
   # Диапазон цен краткосрочной аренды.
-  shortTermPrices: RentPrice
+  shortTermPrices: RentPriceInput
   # Диапазон цен долгосрочной аренды.
-  longTermPrices: RentPrice
+  longTermPrices: RentPriceInput
   # Широта.
-  latitude: Float
+  latitude: Float!
   # Долгота.
-  longitude: Float
+  longitude: Float!
   # Страна.
   country: String!
   # Область.
@@ -85,10 +91,18 @@ input PlaceFilter {
   road: String
   # Фильтр по дому.
   houseNumber: Int
-  # Фильтр по оценкам (от).
-  ratingFrom: Float
-  # Фильтр по оценкам (до).
-  ratingTo: Float
+  # Фильтр по оценкам места (от).
+  placeRatingFrom: Float
+  # Фильтр по оценкам места (до).
+  placeRatingTo: Float
+  # Фильтр по оценкам арендодателя (от).
+  landlordRatingFrom: Float
+  # Фильтр по оценкам арендодателя (до).
+  landlordRatingTo: Float
+  # Фильтр по оценкам соседей (от).
+  neighborRatingFrom: Float
+  # Фильтр по оценкам соседей (до).
+  neighborRatingTo: Float
 }
 
 extend type Query {

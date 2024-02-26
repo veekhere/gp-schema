@@ -24,7 +24,7 @@ type Rating {
   place: Place
 }
 
-type RatingInput {
+input RatingInput {
   id: UUID!
   placeId: UUID!
   # Цена аренды.

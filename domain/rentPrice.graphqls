@@ -3,3 +3,8 @@ type RentPrice {
   min: Int
   max: Int
 }
+
+input RentPriceInput {
+  min: Int
+  max: Int
+}
