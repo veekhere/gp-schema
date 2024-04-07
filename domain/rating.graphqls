@@ -4,10 +4,6 @@ type Rating {
   price: Int
   # Тип аренды.
   rentType: RentType!
-  # Срок аренды (от).
-  rentDateFrom: Date!
-  # Срок аренды (до).
-  rentDateTo: Date!
   # Преимущества.
   pros: String!
   # Недостатки.
@@ -21,7 +17,7 @@ type Rating {
   # Оценка соседей.
   neighborRating: Int
   # Помещение.
-  place: Place
+  place: CommonProjection
 }
 
 input RatingInput {
@@ -31,10 +27,6 @@ input RatingInput {
   price: Int
   # Тип аренды.
   rentType: RentType!
-  # Срок аренды (от).
-  rentDateFrom: Date!
-  # Срок аренды (до).
-  rentDateTo: Date!
   # Преимущества.
   pros: String!
   # Недостатки.
@@ -47,6 +39,10 @@ input RatingInput {
   landlordRating: Int!
   # Оценка соседей.
   neighborRating: Int
+}
+
+extend type Query {
+  searchRatings: [Rating]
 }
 
 extend type Mutation {
