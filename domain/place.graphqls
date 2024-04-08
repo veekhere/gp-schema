@@ -36,6 +36,40 @@ type Place {
   ratings: [Rating]
 }
 
+type PlaceProjection {
+  id: UUID!
+  # Тип аренды.
+  rentType: [RentType]
+  # Тип помещения.
+  spaceType: SpaceType
+  # Площадь.
+  area: Float
+  # Этаж.
+  floor: Int
+  # Широта.
+  latitude: Float
+  # Долгота.
+  longitude: Float
+  # Страна.
+  country: String
+  # Область.
+  state: String
+  # Город.
+  city: String
+  # Улица.
+  road: String
+  # Дом.
+  houseNumber: Int
+  # Средняя стоимость аренды.
+  avgPrice: Float
+  # Средняя оценка помещения.
+  avgPlaceRating: Float
+  # Средняя оценка арендодателя.
+  avgLandlordRating: Float
+  # Средняя оценка соседей.
+  avgNeighborRating: Float
+}
+
 input PlaceInput {
   id: UUID!
   # Тип аренды.
@@ -46,10 +80,6 @@ input PlaceInput {
   area: Float!
   # Этаж.
   floor: Int!
-  # Диапазон цен краткосрочной аренды.
-  shortTermPrices: RentPriceInput
-  # Диапазон цен долгосрочной аренды.
-  longTermPrices: RentPriceInput
   # Широта.
   latitude: Float!
   # Долгота.
@@ -106,7 +136,7 @@ input PlaceFilter {
 }
 
 extend type Query {
-  searchPlaces(filter: PlaceFilter!): [Place]!
+  searchPlaces(filter: PlaceFilter!): [PlaceProjection]!
   getPlace(id: UUID!): Place
 }
 
