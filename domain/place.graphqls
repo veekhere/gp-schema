@@ -112,7 +112,7 @@ input PlaceFilter {
   # Фильтр по цены аренды (до).
   priceTo: BigDecimal
   # Фильтр по стране.
-  country: String!
+  country: String
   # Фильтр по области.
   state: String
   # Фильтр по городу.
