@@ -18,6 +18,8 @@ type Rating {
   neighborRating: Int
   # Помещение.
   place: CommonProjection
+  # Создано.
+  createdAt: DateTime!
 }
 
 input RatingInput {
