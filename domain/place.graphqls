@@ -25,7 +25,7 @@ type Place {
   # Улица.
   road: String!
   # Дом.
-  houseNumber: Int!
+  houseNumber: String!
   # Средняя оценка помещения.
   avgPlaceRating: Float!
   # Средняя оценка арендодателя.
@@ -59,7 +59,7 @@ type PlaceProjection {
   # Улица.
   road: String
   # Дом.
-  houseNumber: Int
+  houseNumber: String
   # Средняя стоимость аренды.
   avgPrice: Float
   # Средняя оценка помещения.
@@ -93,7 +93,7 @@ input PlaceInput {
   # Улица.
   road: String!
   # Дом.
-  houseNumber: Int!
+  houseNumber: String!
 }
 
 input PlaceFilter {
@@ -120,7 +120,7 @@ input PlaceFilter {
   # Фильтр по улице.
   road: String
   # Фильтр по дому.
-  houseNumber: Int
+  houseNumber: String
   # Фильтр по оценкам места (от).
   placeRatingFrom: Float
   # Фильтр по оценкам места (до).
