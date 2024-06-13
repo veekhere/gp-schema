@@ -1,7 +1,7 @@
 type Rating {
   id: UUID!
   # Цена аренды.
-  price: Int
+  price: Int!
   # Тип аренды.
   rentType: RentType!
   # Преимущества.
